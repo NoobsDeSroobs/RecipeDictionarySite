@@ -8,15 +8,15 @@ namespace RecipeDictionarySite.Models
 {
     public class Recipe
     {
-        public System.Guid AssetID { get; set; }
+        public int ID { get; set; }
 
-        [Required]
+        [Required, MaxLength(50)]
         [Display(Name = "Name")]
         public string Name { get; set; }
         [Display(Name = "ImageURL")]
         public string ImageURL { get; set; }
         [Display(Name = "PreparationSteps")]
-        public List<string> PreparationSteps { get; set; }
+        public List<PreparationStep> PreparationSteps { get; set; }
         [Display(Name = "Ingredients")]
         public List<Ingredient> Ingredients { get; set; }
         [Display(Name = "TimeToCook")]

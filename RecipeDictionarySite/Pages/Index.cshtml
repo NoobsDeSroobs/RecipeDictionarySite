@@ -47,6 +47,31 @@
         </li>
     </ul>
 </div>
-<div>Results</div>
 
+
+<br />
+<div>All matching recipies:</div>
+<br />
+
+
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var recipe in Model.Recipes)
+            {
+                <tr>
+                    <td>@recipe.ID</td>
+                    <td>@recipe.Name</td>
+                    <td>Delete and edit buttons</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>
 
