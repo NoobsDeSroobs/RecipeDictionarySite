@@ -12,7 +12,7 @@ namespace RecipeDictionarySite.Pages
 
         public void OnGet()
         {
-            Message = "This application was made for private use.";
+            Message = "This application was made for private use, but feel free to use it.";
         }
     }
 }
