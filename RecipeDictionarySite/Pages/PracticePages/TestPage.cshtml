@@ -1,0 +1,34 @@
+﻿@page
+@model RecipeDictionarySite.Pages.PracticePages.TestPageModel
+@{
+    ViewData["Title"] = "TestPage";
+}
+
+<h2>TestPage</h2>
+
+<form method="post">
+    <div asp-validation-summary="All"></div>
+    <div>Name: <input asp-for="Recipe.Name" style="color:black"/></div>
+    <input type="submit" style="color:black" />
+</form>
+
+<form method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var recipe in Model.Recipes)
+            {
+                <tr>
+                    <td>@recipe.ID</td>
+                    <td>@recipe.Name</td>
+                    <td><button style="color:black" type="submit" asp-page-handler="delete" asp-route-id="@recipe.ID">DELETE</button></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</form>

@@ -27,7 +27,7 @@ namespace RecipeDictionarySite
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+                options.UseSqlServer(Configuration.GetConnectionString("AzureSQLDB")));
 
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>()
@@ -58,7 +58,7 @@ namespace RecipeDictionarySite
             {
                 app.UseExceptionHandler("/Error");
             }
-
+            
             app.UseStaticFiles();
 
             app.UseAuthentication();

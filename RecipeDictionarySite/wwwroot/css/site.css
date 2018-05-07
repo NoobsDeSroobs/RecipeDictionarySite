@@ -1,6 +1,19 @@
+html {
+    background-color: #1e1e1e;
+    color: whitesmoke;
+}
+
+* {
+    background-color: #1e1e1e;
+    color: whitesmoke;
+}
+
+
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-color: #1e1e1e;
+    color: whitesmoke;
 }
 
 /* Wrapping element */
@@ -8,6 +21,8 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    background-color: #1e1e1e;
+    color: whitesmoke;
 }
 
 /* Carousel */
