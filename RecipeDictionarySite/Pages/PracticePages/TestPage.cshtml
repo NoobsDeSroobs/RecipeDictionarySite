@@ -8,8 +8,8 @@
 
 <form method="post">
     <div asp-validation-summary="All"></div>
-    <div>Name: <input asp-for="Recipe.Name" style="color:black"/></div>
-    <input type="submit" style="color:black" />
+    <div>Name: <input asp-for="Recipe.Name" style="background-color:whitesmoke;color:black"/></div>
+    <input type="submit" style="background-color:whitesmoke;color:black" />
 </form>
 
 <form method="post">
@@ -26,7 +26,7 @@
                 <tr>
                     <td>@recipe.ID</td>
                     <td>@recipe.Name</td>
-                    <td><button style="color:black" type="submit" asp-page-handler="delete" asp-route-id="@recipe.ID">DELETE</button></td>
+                    <td><button style="background-color:whitesmoke;color:black" type="submit" asp-page-handler="delete" asp-route-id="@recipe.ID">DELETE</button></td>
                 </tr>
             }
         </tbody>
