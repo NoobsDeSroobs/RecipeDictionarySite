@@ -35,6 +35,54 @@
         <dd>
             @Html.DisplayFor(model => model.Recipe.NumHit)
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Recipe.Ingredients)
+        </dt>
+        <dd>
+            <form method="post">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var ingredient in Model.Recipe.Ingredients)
+                        {
+                        <tr>
+                            <td>@ingredient.IngredientID</td>
+                            <td>@ingredient.IngredientName</td>
+                        </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Recipe.PreparationSteps)
+        </dt>
+        <dd>
+            <form method="post">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var step in Model.Recipe.PreparationSteps)
+                        {
+                            <tr>
+                                <td>@step.PreparationStepID</td>
+                                <td>@step.StepText</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </form>
+        </dd>
     </dl>
 </div>
 <div>

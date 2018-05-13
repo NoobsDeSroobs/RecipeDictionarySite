@@ -4,6 +4,6 @@
     {
         public System.Guid PreparationStepID { get; set; }
 
-        public string Step { get; set; }
+        public string StepText { get; set; }
     }
 }

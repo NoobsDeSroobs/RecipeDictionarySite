@@ -8,6 +8,12 @@ namespace RecipeDictionarySite.Models
 {
     public class Recipe
     {
+
+        public Recipe()
+        {
+            Ingredients = new List<Ingredient>();
+            PreparationSteps = new List<PreparationStep>();
+        }
         public int ID { get; set; }
 
         [Required, MaxLength(50)]

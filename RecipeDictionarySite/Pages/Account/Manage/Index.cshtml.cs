@@ -17,15 +17,17 @@ namespace RecipeDictionarySite.Pages.Account.Manage
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
+        private readonly ApplicationDbContext _db;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            IEmailSender emailSender)
+            IEmailSender emailSender, ApplicationDbContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _db = db;
         }
 
         public string Username { get; set; }
@@ -47,6 +49,7 @@ namespace RecipeDictionarySite.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+            public string Role { get; internal set; }
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -58,11 +61,26 @@ namespace RecipeDictionarySite.Pages.Account.Manage
             }
 
             Username = user.UserName;
+            string roleName = "Missing Role";
 
+            string userID = _db.Users.FirstOrDefault(x => x.UserName.Equals(Username, StringComparison.OrdinalIgnoreCase)).Id;
+            if (userID != null)
+            {
+                string roleID = _db.UserRoles.FirstOrDefault(x => x.UserId.Equals(userID, StringComparison.OrdinalIgnoreCase)).RoleId;
+                if (roleID != null)
+                {
+                    roleName = _db.Roles.FirstOrDefault(x => x.Id.Equals(roleID, StringComparison.OrdinalIgnoreCase)).Name;
+                    if (roleName == null)
+                    {
+                        roleName = "Missing Role";
+                    }
+                }
+            }
             Input = new InputModel
             {
                 Email = user.Email,
-                PhoneNumber = user.PhoneNumber
+                PhoneNumber = user.PhoneNumber,
+                Role = roleName
             };
 
             IsEmailConfirmed = await _userManager.IsEmailConfirmedAsync(user);
