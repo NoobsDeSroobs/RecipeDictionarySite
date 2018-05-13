@@ -13,6 +13,13 @@
             <div>
                 <p>Role: @Model.Input.Role</p>
             </div>
+            @if (@Model.Input.Role.Equals("DARLING", StringComparison.OrdinalIgnoreCase))
+            {
+                <div>
+                    <h1>Hello, Love!</h1>
+                    <p>I am so happy to see you again. I have missed you. You are the dearest thing I have and I love you more than anything in this world. I hope you will forever be happy.</p>
+                </div>
+            }
             <div class="form-group">
                 <label asp-for="Username"></label>
                 <input asp-for="Username" class="form-control" disabled />
